@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class PlatformMove : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject ObjectToMove { get; set; }
+    public GameObject FinishObject { get; set; }
+    public float MoveTime { get; set; }
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if(ObjectToMove.transform.position != FinishObject.transform.position)
+        {
+            ObjectToMove.transform.
+        }
     }
 }

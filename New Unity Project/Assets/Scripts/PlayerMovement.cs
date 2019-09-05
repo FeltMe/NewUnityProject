@@ -7,8 +7,8 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
 
     public float verticalVelocity;
-    private readonly float gravity = 240.0f;
-    private readonly float JumpForce = 60.0f;
+    private readonly float gravity = 150;
+    private readonly float JumpForce = 73.0f;
     public float Speed;
 
     private void Start()
@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
             verticalVelocity = JumpForce;
         }
         else
-        {
+        {       
             verticalVelocity -= gravity * Time.deltaTime;
         }
         Vector3 moveV = new Vector3(0, verticalVelocity, 0);

@@ -14,9 +14,6 @@ public class PlayerMovement : MonoBehaviour
     private readonly float JumpForce =  50.0f;
     public float Speed;
 
-    private bool allradyPlayed;
-
-
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -53,5 +50,5 @@ public class PlayerMovement : MonoBehaviour
         {
             gameObject.transform.Translate(Vector3.right * Time.deltaTime * Speed);
         }
-    }
+    }   
 }

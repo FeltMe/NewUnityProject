@@ -6,14 +6,21 @@ public class PlayerMovement : MonoBehaviour
 {
     private CharacterController controller;
 
+    public AudioClip Audio;
+    private AudioSource Source;
+
     public float verticalVelocity;
-    private readonly float gravity = 150;
-    private readonly float JumpForce = 73.0f;
+    private readonly float gravity = 100;
+    private readonly float JumpForce =  50.0f;
     public float Speed;
+
+    private bool allradyPlayed;
+
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
+        Source = GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -24,11 +31,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (controller.isGrounded)
         {
+            Source.PlayOneShot(Audio);
             verticalVelocity = -gravity * Time.deltaTime;
             verticalVelocity = JumpForce;
         }
         else
-        {       
+        {
             verticalVelocity -= gravity * Time.deltaTime;
         }
         Vector3 moveV = new Vector3(0, verticalVelocity, 0);
@@ -37,13 +45,13 @@ public class PlayerMovement : MonoBehaviour
     
     private void TempMovement()
     {
-        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.RightArrow))
+        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            gameObject.transform.Translate(-Vector3.right * Time.deltaTime * Speed);
+            gameObject.transform.Translate(Vector3.left * Time.deltaTime * Speed);
         }
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            gameObject.transform.Translate(-Vector3.left * Time.deltaTime * Speed);
+            gameObject.transform.Translate(Vector3.right * Time.deltaTime * Speed);
         }
     }
 }

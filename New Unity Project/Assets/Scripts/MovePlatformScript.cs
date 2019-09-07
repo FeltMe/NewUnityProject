@@ -21,7 +21,6 @@ public class MovePlatformScript : MonoBehaviour
             }
             else
             {
-                Debug.Log("Destroy");
                 Destroy(gameObject);
             }
         }

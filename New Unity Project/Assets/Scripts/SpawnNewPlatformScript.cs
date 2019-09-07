@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class SpawnNewPlatformScript : MonoBehaviour
 {
+    public GameObject platformWithDimond;
     public GameObject platform;
-    public GameObject PreviousGameObject;   
-
-    void Start()
-    {
-
-    }
+    public GameObject PreviousGameObject;
+    public CharacterController controller;
 
     void Update()
     {
-        if(PreviousGameObject.transform.position.z < 382)
+        if(controller.isGrounded)
         {
-            SpawnObject(platform);
-            PreviousGameObject = platform;
+            if(Random.Range(0, 200) > 195)
+            {
+                SpawnObject(platformWithDimond);
+            }
+            else SpawnObject(platform);
         }
     } 
 
     private void SpawnObject(GameObject @object)
     {
-        Vector3 position = new Vector3(Random.Range(-17, 17), gameObject.transform.position.y, gameObject.transform.position.z);
-        Instantiate(@object, position, Quaternion.identity.normalized);
+        Vector3 position = new Vector3(Random.Range(-13, 13), gameObject.transform.position.y, gameObject.transform.position.z - 28);
+        PreviousGameObject = Instantiate(@object, position, Quaternion.identity.normalized);
+        }
     }
-}

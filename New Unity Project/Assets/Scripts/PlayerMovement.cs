@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void TempMovement()
     {
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.LeftControl))
         {
             gameObject.transform.Translate(Vector3.left * Time.deltaTime * Speed);
         }

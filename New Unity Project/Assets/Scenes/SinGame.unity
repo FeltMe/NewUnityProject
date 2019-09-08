@@ -217,7 +217,7 @@ PrefabInstance:
     - target: {fileID: 4122769128266698711, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 157.2
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 4122769128266698711, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
         type: 3}
@@ -311,12 +311,12 @@ PrefabInstance:
     - target: {fileID: 9128633192622488961, guid: 8f6a464d2394e024497ef9a85e23075d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 27.69
+      value: 27.3
       objectReference: {fileID: 0}
     - target: {fileID: 9128633192622488961, guid: 8f6a464d2394e024497ef9a85e23075d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 22.43
+      value: 24.38
       objectReference: {fileID: 0}
     - target: {fileID: 9128633192622488961, guid: 8f6a464d2394e024497ef9a85e23075d,
         type: 3}
@@ -430,7 +430,7 @@ PrefabInstance:
     - target: {fileID: 4122769128266698711, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 102.2
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 4122769128266698711, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
         type: 3}
@@ -633,7 +633,7 @@ PrefabInstance:
     - target: {fileID: 4122769128266698711, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 212.2
+      value: 215
       objectReference: {fileID: 0}
     - target: {fileID: 4122769128266698711, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
         type: 3}
@@ -819,7 +819,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83307b67d3c9c8d46a55d1ad84ae7c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformWithDimond: {fileID: 0}
   platform: {fileID: 8972073305763700323, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
     type: 3}
   PreviousGameObject: {fileID: 1230122176}
@@ -927,7 +926,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3ba33ceb034efe24f9fb9bfb49097648, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 0.39
   m_Pitch: 1
   Loop: 0

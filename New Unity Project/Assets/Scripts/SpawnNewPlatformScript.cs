@@ -13,7 +13,7 @@ public class SpawnNewPlatformScript : MonoBehaviour
     {
         if(controller.isGrounded)
         {
-            if(Random.Range(0, 200) > 195)
+            if(Random.Range(0, 200) > 50)
             {
                 SpawnObject(platformWithDimond);
             }
@@ -23,7 +23,7 @@ public class SpawnNewPlatformScript : MonoBehaviour
 
     private void SpawnObject(GameObject @object)
     {
-        Vector3 position = new Vector3(Random.Range(-0, 0), gameObject.transform.position.y, gameObject.transform.position.z - 28);
+        Vector3 position = new Vector3(Random.Range(-13, 13), gameObject.transform.position.y, gameObject.transform.position.z);
         PreviousGameObject = Instantiate(@object, position, Quaternion.identity.normalized);
         }
     }

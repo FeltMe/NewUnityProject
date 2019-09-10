@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip Audio;
     private AudioSource Source;
     public Text text;
+    public new GameObject camera;
 
     public float verticalVelocity;
     public float gravity = 100;
@@ -30,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (controller.isGrounded)
         {
-            
+
             Source.PlayOneShot(Audio);
             verticalVelocity = JumpForce;
         }
@@ -46,10 +47,18 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
+            if (camera.transform.position.x > -4)
+            {
+                camera.transform.Translate(Vector3.left * 0.05f);
+            }
             gameObject.transform.Translate(Vector3.left * Time.deltaTime * Speed);
         }
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
+            if (camera.transform.position.x < 4)
+            {
+                camera.transform.Translate(Vector3.right * 0.05f);
+            }
             gameObject.transform.Translate(Vector3.right * Time.deltaTime * Speed);
         }
     }

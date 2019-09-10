@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Lose : MonoBehaviour
 {
+    public 
     void Update()
     {
         if(gameObject.transform.position.y < 25)

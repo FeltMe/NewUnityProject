@@ -13,7 +13,7 @@ public class SpawnNewPlatformScript : MonoBehaviour
     {
         if(controller.isGrounded)
         {
-            if(Random.Range(0, 200) > 100)
+            if(Random.Range(0, 200) > 195)
             {
                 SpawnObject(platformWithDimond);
             }

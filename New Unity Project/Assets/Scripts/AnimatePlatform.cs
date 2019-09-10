@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class AnimatePlatform : MonoBehaviour
 {
-    public CharacterController controller;
-    public Animation animation;
+    private CharacterController controller;
+
+    public CharacterController Controller { get => controller; set => controller = value; }
 
     void Update()
     {
-        if(controller.isGrounded)
-        {
-            animation.enabled = true;
-        }
+        
     }
 }

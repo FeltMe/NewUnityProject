@@ -12,8 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public Text text;
 
     public float verticalVelocity;
-    private readonly float gravity = 100;
-    private readonly float JumpForce = 50.0f;
+    public float gravity = 100;
+    public float JumpForce = 50.0f;
     public float Speed;
 
     private void Start()

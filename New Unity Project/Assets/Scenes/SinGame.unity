@@ -217,7 +217,7 @@ PrefabInstance:
     - target: {fileID: 4122769128266698711, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 160
+      value: 159.1
       objectReference: {fileID: 0}
     - target: {fileID: 4122769128266698711, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
         type: 3}
@@ -282,7 +282,7 @@ PrefabInstance:
     - target: {fileID: 6165227192394302121, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
         type: 3}
       propertyPath: Speed
-      value: 52.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7737894184133433679, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
         type: 3}
@@ -381,12 +381,12 @@ PrefabInstance:
     - target: {fileID: 4430735747140786558, guid: 8f6a464d2394e024497ef9a85e23075d,
         type: 3}
       propertyPath: Speed
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4430735747140786558, guid: 8f6a464d2394e024497ef9a85e23075d,
         type: 3}
       propertyPath: verticalVelocity
-      value: 33
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4430735747140786558, guid: 8f6a464d2394e024497ef9a85e23075d,
         type: 3}
@@ -403,6 +403,16 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 1698381490}
+    - target: {fileID: 4430735747140786558, guid: 8f6a464d2394e024497ef9a85e23075d,
+        type: 3}
+      propertyPath: gravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430735747140786558, guid: 8f6a464d2394e024497ef9a85e23075d,
+        type: 3}
+      propertyPath: JumpForce
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f6a464d2394e024497ef9a85e23075d, type: 3}
 --- !u!1001 &541758731
@@ -430,7 +440,7 @@ PrefabInstance:
     - target: {fileID: 4122769128266698711, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 105
+      value: 104.100006
       objectReference: {fileID: 0}
     - target: {fileID: 4122769128266698711, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
         type: 3}
@@ -495,7 +505,7 @@ PrefabInstance:
     - target: {fileID: 6165227192394302121, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
         type: 3}
       propertyPath: Speed
-      value: 52.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7737894184133433679, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
         type: 3}
@@ -599,7 +609,7 @@ PrefabInstance:
     - target: {fileID: 6165227192394302121, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
         type: 3}
       propertyPath: Speed
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7737894184133433679, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
         type: 3}
@@ -633,7 +643,7 @@ PrefabInstance:
     - target: {fileID: 4122769128266698711, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 215
+      value: 214.1
       objectReference: {fileID: 0}
     - target: {fileID: 4122769128266698711, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
         type: 3}
@@ -698,7 +708,7 @@ PrefabInstance:
     - target: {fileID: 6165227192394302121, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
         type: 3}
       propertyPath: Speed
-      value: 52.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7737894184133433679, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
         type: 3}
@@ -928,7 +938,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3ba33ceb034efe24f9fb9bfb49097648, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.39
   m_Pitch: 1
   Loop: 0

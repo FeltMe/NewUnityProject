@@ -1,15 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Lose : MonoBehaviour
 {
-    public 
-    void Update()
+    private const float criticalPositionOfBall = 24;
+
+    public PlayerMovement player;
+    public MovePlatformScript platform;
+    public GameObject platformPrefab;
+    public GameObject RestartBtn;
+
+    private void Start()
     {
-        if(gameObject.transform.position.y < 25)
-        {
-            Debug.Log("Lose");
-        }
+        RestartBtn.SetActive(false);
     }
 }

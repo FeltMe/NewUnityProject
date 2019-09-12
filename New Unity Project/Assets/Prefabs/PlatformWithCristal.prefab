@@ -193,6 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 52.5
+  Score: {fileID: 0}
 --- !u!65 &6125400999298322338
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -291,6 +292,16 @@ PrefabInstance:
     - target: {fileID: 9152582111108315811, guid: ae20dd58ac046ca4499d53d07ff0ba09,
         type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6630758628667515975, guid: ae20dd58ac046ca4499d53d07ff0ba09,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6630758628667515975, guid: ae20dd58ac046ca4499d53d07ff0ba09,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

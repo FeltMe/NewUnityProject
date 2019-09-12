@@ -5,12 +5,16 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
-    private CharacterController controller;
+    private const int cameraXPositions = 4; //Make camera move
+    private const float cameraSpeedCoefficient = 0.05f;
+
+    public CharacterController controller;
 
     public AudioClip Audio;
     private AudioSource Source;
     public Text text;
     public new GameObject camera;
+    public CoinCollector сoins;
 
     public float verticalVelocity;
     public float gravity = 100;
@@ -31,9 +35,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (controller.isGrounded)
         {
-
             Source.PlayOneShot(Audio);
             verticalVelocity = JumpForce;
+
         }
         else
         {
@@ -47,19 +51,27 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            if (camera.transform.position.x > -4)
+            if (camera.transform.position.x > -cameraXPositions)
             {
-                camera.transform.Translate(Vector3.left * 0.05f);
+                camera.transform.Translate(Vector3.left * cameraSpeedCoefficient);
             }
             gameObject.transform.Translate(Vector3.left * Time.deltaTime * Speed);
         }
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            if (camera.transform.position.x < 4)
+            if (camera.transform.position.x < cameraXPositions)
             {
-                camera.transform.Translate(Vector3.right * 0.05f);
+                camera.transform.Translate(Vector3.right * cameraSpeedCoefficient);
             }
             gameObject.transform.Translate(Vector3.right * Time.deltaTime * Speed);
+        }
+    }
+    private void OnTriggerEnter(Collider collider) // Dimonds collector
+    {
+        if(collider.gameObject.name == "Star") 
+        {
+            сoins.IncrementPoints();
+            Destroy(collider.gameObject);
         }
     }
 }

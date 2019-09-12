@@ -1,18 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CoinCollector : MonoBehaviour
 {
-    
-    void Start()
+    private ulong Points = 0;
+    public Text ScoreText;
+    public void IncrementPoints()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Points++;
+        ScoreText.text = Points.ToString();
     }
 }

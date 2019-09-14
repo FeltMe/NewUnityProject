@@ -349,6 +349,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform(Clone)
       objectReference: {fileID: 0}
+    - target: {fileID: 8972073305763700323, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 6165227192394302121, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
         type: 3}
       propertyPath: FinishObject
@@ -751,6 +756,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform(Clone)
       objectReference: {fileID: 0}
+    - target: {fileID: 8972073305763700323, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 6165227192394302121, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
         type: 3}
       propertyPath: FinishObject
@@ -853,6 +863,11 @@ PrefabInstance:
     - target: {fileID: 8972073305763700323, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
         type: 3}
       propertyPath: m_Name
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 8972073305763700323, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
+        type: 3}
+      propertyPath: m_TagString
       value: Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6165227192394302121, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
@@ -963,6 +978,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Platform(Clone)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8972073305763700323, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6165227192394302121, guid: 1c1fd4515e8ce1447a1a80a39886ef07,
         type: 3}
@@ -1164,7 +1184,6 @@ MonoBehaviour:
   StartBtn: {fileID: 1864117183}
   ThemeBtn: {fileID: 1304771837}
   ThemeButtonText: {fileID: 374675563}
-  camera: {fileID: 732159640}
 --- !u!114 &732159643
 MonoBehaviour:
   m_ObjectHideFlags: 0

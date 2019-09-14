@@ -33,42 +33,51 @@ public class PlayerMovement : MonoBehaviour
     }
     private void AutooJump()
     {
-        if (controller.isGrounded)
+        if (controller.enabled)
         {
-            Source.PlayOneShot(Audio);
-            verticalVelocity = JumpForce;
-
+            if (controller.isGrounded)
+            {
+                Source.PlayOneShot(Audio);
+                verticalVelocity = JumpForce;
+            }
+            else
+            {
+                verticalVelocity -= gravity * Time.deltaTime;
+            }
+            Vector3 moveV = new Vector3(0, verticalVelocity, 0);
+            controller.Move(moveV * Time.deltaTime);
         }
-        else
-        {
-            verticalVelocity -= gravity * Time.deltaTime;
-        }
-        Vector3 moveV = new Vector3(0, verticalVelocity, 0);
-        controller.Move(moveV * Time.deltaTime);
     }
 
     private void TempMovement()
     {
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if (Input.touchCount > 0)
         {
-            if (camera.transform.position.x > -cameraXPositions)
+            var touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began)
             {
-                camera.transform.Translate(Vector3.left * cameraSpeedCoefficient);
+                if (touch.position.x < Screen.width / 2 && transform.position.x > 1.75f)
+                {
+                    gameObject.transform.Translate(Vector3.left * Time.deltaTime * Speed);
+                    if (camera.transform.position.x > -cameraXPositions)
+                    {
+                        camera.transform.Translate(Vector3.left * cameraSpeedCoefficient);
+                    }
+                }
+                else if (touch.position.x > Screen.width / 2 && transform.position.x < 1.75f)
+                {
+                    gameObject.transform.Translate(Vector3.right * Time.deltaTime * Speed);
+                    if (camera.transform.position.x < cameraXPositions)
+                    {
+                        camera.transform.Translate(Vector3.right * cameraSpeedCoefficient);
+                    }
+                }
             }
-            gameObject.transform.Translate(Vector3.left * Time.deltaTime * Speed);
-        }
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            if (camera.transform.position.x < cameraXPositions)
-            {
-                camera.transform.Translate(Vector3.right * cameraSpeedCoefficient);
-            }
-            gameObject.transform.Translate(Vector3.right * Time.deltaTime * Speed);
         }
     }
     private void OnTriggerEnter(Collider collider) // Dimonds collector
     {
-        if(collider.gameObject.name == "Star") 
+        if (collider.gameObject.name == "Star")
         {
             сoins.IncrementPoints();
             Destroy(collider.gameObject);

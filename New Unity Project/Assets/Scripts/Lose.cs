@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Lose : MonoBehaviour
 {
-    private const float criticalPositionOfBall = 24;
 
     public PlayerMovement player;
     public MovePlatformScript platform;

@@ -12,21 +12,23 @@ public class StartGame : MonoBehaviour
     private const float verticalVelocity = 75;
     private const float jumpForce = 50;
 
-    public MovePlatformScript[] firstFourPlatforms;
     public MovePlatformScript PlatformScript;
     public PlayerMovement player;
     public GameObject StartBtn;
     public GameObject ThemeBtn;
     public Text ThemeButtonText;
-    public new Camera camera;
+    private new Camera camera;
 
     private bool SwitcherOfThemes;
+
+    public Camera Camera { get => camera; set => camera = value; }
 
     [System.Obsolete]
     public void Starter()
     {
         AddSpeedForStaticPlatforms();
-        SetStartValues();
+
+         SetStartValues();
     }
 
     public void ThemeChanger()
@@ -39,13 +41,13 @@ public class StartGame : MonoBehaviour
         if(ThemeState)
         {
             ThemeButtonText.text = "Dark";
-            camera.backgroundColor = Color.white;
+            Camera.backgroundColor = Color.white;
             ThemeButtonText.color = Color.black;
         }
         else
         {
             ThemeButtonText.text = "Light";
-            camera.backgroundColor = Color.black;
+            Camera.backgroundColor = Color.black;
             ThemeButtonText.color = Color.white;
         }
         SwitcherOfThemes = !SwitcherOfThemes;
@@ -54,8 +56,8 @@ public class StartGame : MonoBehaviour
     [System.Obsolete]
     private void SetStartValues()
     {
-        StartBtn.active = false;
-        ThemeBtn.active = false;
+        StartBtn.SetActive(false);
+        ThemeBtn.SetActive(false);
         player.gravity = gravity;
         player.Speed = playerSpeed;
         player.verticalVelocity = verticalVelocity;
@@ -64,13 +66,12 @@ public class StartGame : MonoBehaviour
     }
     private void AddSpeedForStaticPlatforms()
     {
+        var firstFourPlatforms = GameObject.FindGameObjectsWithTag("Platform");
+        
         for (int i = 0; i < firstFourPlatforms.Length; i++)
         {
-            if (i > 0) // Check for first platform couse it sude have lover speed
-            {
-                firstFourPlatforms[i].Speed = defaultPlatfromMovementSpeed;
-            }
-            else firstFourPlatforms[i].Speed = firstPlatformSpeed;
+            var s = firstFourPlatforms[i].GetComponent<MovePlatformScript>();
+            s.Speed = defaultPlatfromMovementSpeed;
         }
     }
 }

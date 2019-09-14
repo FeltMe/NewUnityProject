@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SpawnObject
   - Score
+  - Platform
   layers:
   - Default
   - TransparentFX

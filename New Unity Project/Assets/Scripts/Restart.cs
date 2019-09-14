@@ -13,33 +13,65 @@ public class Restart : MonoBehaviour
     public GameObject RestartBtn;
     public Text Score;
 
-    public void GameRestart()
+
+    private void SpawnDefaultFourPlatforms()
     {
-        StartBtn.SetActive(true);
-        ThemeBtn.SetActive(true);
-        RestartBtn.SetActive(false);
         Instantiate(platformPrefab, new Vector3(0, 25, 25), Quaternion.identity);
         Instantiate(platformPrefab, new Vector3(0, 25, 104), Quaternion.identity);
         Instantiate(platformPrefab, new Vector3(0, 25, 158), Quaternion.identity);
         Instantiate(platformPrefab, new Vector3(0, 25, 213), Quaternion.identity);
-        Debug.Log(player.transform.position);
-        player.transform.position.Set(0, 27.3f, 24.38f); //todo
-        Debug.Log(player.transform.position);
+    }
+
+    private void SetButtons()
+    {
+        StartBtn.SetActive(true);
+        ThemeBtn.SetActive(true);
+        RestartBtn.SetActive(false);
+    }
+
+    private void SetPlayerValues()
+    {
         player.verticalVelocity = 0;
+        player.transform.position = new Vector3(0, 27.3f, 24.38f);
+        player.GetComponent<CharacterController>().enabled = true;
+    }
+
+
+    public void GameRestart()
+    {
+        SpawnDefaultFourPlatforms();
+        SetButtons();
+        SetPlayerValues();
     }
     private void OnTriggerEnter(Collider other)
     {
         RestartBtn.SetActive(true);
+        SetValuesToZero();
+        DeletePlatforms();
+        SetPlatformScales();
+    }
+
+    private void SetValuesToZero()
+    {
         player.gravity = 0;
         player.Speed = 0;
         player.verticalVelocity = 0;
         player.JumpForce = 0;
         platformPrefab.Speed = 0;
+        player.GetComponent<CharacterController>().enabled = false;
         Score.text = "0";
+    }
+
+    private void SetPlatformScales()
+    {
         platformPrefab.transform.localScale = new Vector3(12, 2, 12);
         platformPrefabWithDimond.transform.localScale = new Vector3(12, 2, 12);
-        var platforms = GameObject.FindGameObjectsWithTag("Platform(Clone)");
-        foreach (var item in platforms) // todo
+    }
+
+    private void DeletePlatforms()
+    {
+        var platforms = GameObject.FindGameObjectsWithTag("Platform");
+        foreach (var item in platforms)
         {
             Destroy(item);
         }

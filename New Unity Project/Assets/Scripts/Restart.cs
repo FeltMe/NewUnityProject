@@ -27,6 +27,7 @@ public class Restart : MonoBehaviour
         StartBtn.SetActive(true);
         ThemeBtn.SetActive(true);
         RestartBtn.SetActive(false);
+        Score.text = "0";
     }
 
     private void SetPlayerValues()
@@ -43,7 +44,7 @@ public class Restart : MonoBehaviour
         SetButtons();
         SetPlayerValues();
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collider)
     {
         RestartBtn.SetActive(true);
         SetValuesToZero();
@@ -54,12 +55,13 @@ public class Restart : MonoBehaviour
     private void SetValuesToZero()
     {
         player.gravity = 0;
-        player.Speed = 0;
+        player.speed = 0; 
         player.verticalVelocity = 0;
-        player.JumpForce = 0;
+        player.jumpForce = 0;
         platformPrefab.Speed = 0;
+        player.cameraXPositions = 0;
+        player.cameraSpeedCoefficient = 0;
         player.GetComponent<CharacterController>().enabled = false;
-        Score.text = "0";
     }
 
     private void SetPlatformScales()

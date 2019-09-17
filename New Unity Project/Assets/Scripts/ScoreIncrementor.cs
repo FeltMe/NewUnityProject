@@ -15,6 +15,7 @@ public class ScoreIncrementor : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
     }
+
     void Update()
     {
         if (controller.isGrounded)

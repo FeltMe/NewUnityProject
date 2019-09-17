@@ -5,31 +5,32 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
-    private const int cameraXPositions = 4; //Make camera move
-    private const float cameraSpeedCoefficient = 0.05f;
+    public int cameraXPositions = 0; //Make camera move
+    public float cameraSpeedCoefficient;
 
     public CharacterController controller;
 
-    public AudioClip Audio;
-    private AudioSource Source;
-    public Text text;
+    public AudioClip audio;
+    private AudioSource source;
     public new GameObject camera;
     public CoinCollector сoins;
 
     public float verticalVelocity;
     public float gravity = 100;
-    public float JumpForce = 50.0f;
-    public float Speed;
+    public float jumpForce = 50.0f;
+    public float speed;
+    private float currentPositionX;
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
-        Source = GetComponent<AudioSource>();
+        source = GetComponent<AudioSource>();
+        currentPositionX = gameObject.transform.position.x;
     }
     private void Update()
     {
         AutooJump();
-        TempMovement();
+        Movement();
     }
     private void AutooJump()
     {
@@ -37,8 +38,8 @@ public class PlayerMovement : MonoBehaviour
         {
             if (controller.isGrounded)
             {
-                Source.PlayOneShot(Audio);
-                verticalVelocity = JumpForce;
+                source.PlayOneShot(audio);
+                verticalVelocity = jumpForce;
             }
             else
             {
@@ -49,32 +50,29 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void TempMovement()
+    private void Movement()
     {
-        if (Input.touchCount > 0)
+        currentPositionX = Input.mousePosition.x;
+        var pos = Camera.main.ViewportToScreenPoint(new Vector3(0.05f, 0, 0));
+
+        if (currentPositionX - Camera.main.WorldToScreenPoint(gameObject.transform.position).x > pos.x)
         {
-            var touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Began)
+            if (camera.transform.position.x <= cameraXPositions)
             {
-                if (touch.position.x < Screen.width / 2 && transform.position.x > 1.75f)
-                {
-                    gameObject.transform.Translate(Vector3.left * Time.deltaTime * Speed);
-                    if (camera.transform.position.x > -cameraXPositions)
-                    {
-                        camera.transform.Translate(Vector3.left * cameraSpeedCoefficient);
-                    }
-                }
-                else if (touch.position.x > Screen.width / 2 && transform.position.x < 1.75f)
-                {
-                    gameObject.transform.Translate(Vector3.right * Time.deltaTime * Speed);
-                    if (camera.transform.position.x < cameraXPositions)
-                    {
-                        camera.transform.Translate(Vector3.right * cameraSpeedCoefficient);
-                    }
-                }
+                camera.transform.Translate(Vector3.right * cameraSpeedCoefficient * Time.deltaTime);
             }
+            gameObject.transform.Translate(Vector3.right * speed * Time.deltaTime);
+        }
+        else if (currentPositionX - Camera.main.WorldToScreenPoint(gameObject.transform.position).x < pos.x)
+        {
+            if (camera.transform.position.x >= -cameraXPositions)
+            {
+                camera.transform.Translate(Vector3.left * cameraSpeedCoefficient * Time.deltaTime);
+            }
+            gameObject.transform.Translate(Vector3.left * speed * Time.deltaTime);
         }
     }
+
     private void OnTriggerEnter(Collider collider) // Dimonds collector
     {
         if (collider.gameObject.name == "Star")

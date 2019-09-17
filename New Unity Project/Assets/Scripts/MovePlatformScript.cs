@@ -1,17 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class MovePlatformScript : MonoBehaviour
 {
     private GameObject FinishObject;
     public float Speed;
-    public Text Score;
 
     private void Start()
     {
         FinishObject = GameObject.FindGameObjectWithTag("Finish");
-        Score = GetComponent<Text>();
     }
     void Update()
     {
@@ -24,6 +24,7 @@ public class MovePlatformScript : MonoBehaviour
             else
             {
                 Destroy(gameObject);
+                GC.Collect(0);
             }
         }
     }
